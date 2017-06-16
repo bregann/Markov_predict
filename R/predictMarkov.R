@@ -5,6 +5,14 @@
 #' @return The prediction
 #' @import clickstream
 #' @export
+predictNextPage2 <- function(current_url){
+  out <- try(predict(model, newdata = current_url), silent = TRUE)
+  if(inherits(out, "try-error")){
+    out <- "None"
+  }
+  out
+}
+#' @return The prediction
 predictMarkov <- function(pageview_names) {
 
   ## mc loaded on package load
